@@ -60,7 +60,6 @@ contract SchoolAdminFactory is Ownable {
      * @notice Memberikan izin kepada kontrak seorang guru untuk menulis data di rapor seorang siswa.
      * @dev Hanya bisa dipanggil oleh Super Admin. Ini adalah langkah penghubung yang krusial.
      * @param _studentId ID siswa yang rapornya akan diakses.
-     * @param _teacherAddress Alamat PRIBADI guru (bukan alamat kontraknya).
      */
     function authorizeTeacherForStudent(uint256 _studentId, address _teacherAddress) public onlyOwner {
         address recordAddress = studentIdToRecordAddress[_studentId];
@@ -73,4 +72,5 @@ contract SchoolAdminFactory is Ownable {
         emit TeacherAuthorized(_studentId, teacherContractAddress);
     }
 }
+
 
